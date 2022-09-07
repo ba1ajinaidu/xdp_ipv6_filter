@@ -10,8 +10,8 @@
    ```
    $ make
    clang -I. -I/lib/modules/5.15.0-46-generic/build/arch/x86/include -I/lib/modules/5.15.0-46-generic/build/arch/x86/include/generated - I/lib/modules/5.15.0-46-generic/build/include -I/lib/modules/5.15.0-46-generic/build/arch/x86/include/uapi -I/lib/modules/5.15.0-46-generic/build/include/uapi -include /lib/modules/5.15.0-46-generic/build/include/linux/kconfig.h -D__KERNEL__ -D__BPF_TRACING__ -Wno-unused-value -Wno-pointer-sign -D__TARGET_ARCH_x86 -Wno-compare-distinct-pointer-types -Wno-gnu-variable-sized-type-not-at-end -Wno-address-of-packed-member -Wno-tautological-compare -O2 -emit-llvm -c xdp_ipv6_filter.c -o - | \
-llc -march=bpf -mcpu= -filetype=obj -o xdp_ipv6_filter.o
-  ```
+   llc -march=bpf -mcpu= -filetype=obj -o xdp_ipv6_filter.o
+    ```
 2. Create a veth pair using iproute.
    ```
    $ sudo ip link add dev veth0 type veth peer name veth1
